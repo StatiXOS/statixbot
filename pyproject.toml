@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "statixosbot"
+version = "0.1.0"
+description = "A Telegram bot written in Python using Pyrogram to ease the workflows of the StatiX team!"
+authors = ["Pranaya Deomani <pranayadmn@proton.me>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyrogram = {git = "https://github.com/KurimuzonAkuma/pyrogram.git", rev = "v2.1.22"}
+python-dotenv = "^1.0.1"
+TgCrypto = "^1.2.5"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.2"
+isort = "^5.13.2"
+pytest = "^8.3.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
