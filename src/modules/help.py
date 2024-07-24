@@ -12,7 +12,7 @@ from pyrogram import Client, filters
 cmds: Dict[str, str] = {}
 
 
-def register(app: Client) -> None:
+async def register(app: Client) -> None:
     # Register the /help command
     @app.on_message(filters.command("help"))
     async def help_handler(client: Client, message) -> None:

@@ -14,7 +14,7 @@ from pyrogram import Client
 log: logging.Logger = logging.getLogger(__name__)
 
 
-def load_modules(app: Client) -> None:
+async def load_modules(app: Client) -> None:
     module_dir: str = os.path.join(os.path.dirname(__file__), "modules")
     for filename in os.listdir(module_dir):
         if filename.endswith(".py") and filename != "help.py":
@@ -22,7 +22,7 @@ def load_modules(app: Client) -> None:
             try:
                 log.info(f"Loading module: {module_name}")
                 module: Any = import_module(f"src.modules.{module_name}")
-                module.register(app)
+                await module.register(app)
             except Exception as e:
                 log.error(f"Error loading module {module_name}: {e}")
 
@@ -30,6 +30,6 @@ def load_modules(app: Client) -> None:
     try:
         log.info("Loading help module")
         help_module: Any = import_module("src.modules.help")
-        help_module.register(app)
+        await help_module.register(app)
     except Exception as e:
         log.error(f"Error loading help module: {e}")

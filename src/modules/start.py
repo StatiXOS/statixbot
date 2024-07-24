@@ -9,7 +9,7 @@ from pyrogram import Client, filters
 from .help import add_cmd
 
 
-def register(app: Client) -> None:
+async def register(app: Client) -> None:
     # Register the /start command
     @app.on_message(filters.command("start"))
     async def start(client: Client, message) -> None:

@@ -9,22 +9,21 @@ import os
 from dotenv import load_dotenv
 from pyrogram import Client
 
-from .Module import load_modules
 
-# Load environment variables from .env file
-load_dotenv(override=True)
+def load_config() -> tuple[int, str, str]:
+    """Load environment variables from .env file."""
+    load_dotenv(override=True)
 
-API_ID: int = int(os.getenv("API_ID", "0"))
-API_HASH: str = os.getenv("API_HASH", "")
-BOT_TOKEN: str = os.getenv("BOT_TOKEN", "")
+    api_id: int = int(os.getenv("API_ID", "0"))
+    api_hash: str = os.getenv("API_HASH", "")
+    bot_token: str = os.getenv("BOT_TOKEN", "")
 
-if not all([API_ID, API_HASH, BOT_TOKEN]):
-    raise ValueError("API_ID, API_HASH, and BOT_TOKEN must be set in the .env file.")
+    if not all([api_id, api_hash, bot_token]):
+        raise ValueError("API_ID, API_HASH, and BOT_TOKEN must be set in the .env file.")
 
-# Initialize the Client
-app: Client = Client("app", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
+    return api_id, api_hash, bot_token
 
 
-def main() -> None:
-    load_modules(app)
-    app.run()
+def create_client(api_id: int, api_hash: str, bot_token: str) -> Client:
+    """Initialize the Client."""
+    return Client("app", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
