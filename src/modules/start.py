@@ -9,10 +9,10 @@ from pyrogram import Client, filters
 from .help import add_cmd
 
 
-def register(app: Client):
+def register(app: Client) -> None:
     # Register the /start command
     @app.on_message(filters.command("start"))
-    async def start(client, message):
+    async def start(client: Client, message) -> None:
         await message.reply_text(
             "'Ssup! What would you like me to do?\nUse /help to get a list of all commands and their usage."
         )

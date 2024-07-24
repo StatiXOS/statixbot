@@ -14,17 +14,17 @@ from .Module import load_modules
 # Load environment variables from .env file
 load_dotenv(override=True)
 
-API_ID = int(os.getenv("API_ID"))
-API_HASH = os.getenv("API_HASH")
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+API_ID: int = int(os.getenv("API_ID", "0"))
+API_HASH: str = os.getenv("API_HASH", "")
+BOT_TOKEN: str = os.getenv("BOT_TOKEN", "")
 
 if not all([API_ID, API_HASH, BOT_TOKEN]):
     raise ValueError("API_ID, API_HASH, and BOT_TOKEN must be set in the .env file.")
 
 # Initialize the Client
-app = Client("app", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
+app: Client = Client("app", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
 
-def main():
+def main() -> None:
     load_modules(app)
     app.run()
