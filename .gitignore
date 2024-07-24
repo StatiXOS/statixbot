@@ -1,6 +1,9 @@
 # Environment
 .env
 
+# Logging
+app.log
+
 # Pyrogram
 src/app.session
 

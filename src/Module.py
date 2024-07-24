@@ -4,8 +4,11 @@
 # license that can be found in the LICENSE file or at
 # https://opensource.org/licenses/MIT.
 
+import logging
 import os
 from importlib import import_module
+
+log: logging.Logger = logging.getLogger(__name__)
 
 
 def load_modules(app):
@@ -14,7 +17,8 @@ def load_modules(app):
         if filename.endswith(".py"):
             module_name = filename[:-3]
             try:
+                log.info(f"Loading module: {module_name}")
                 module = import_module(f"src.modules.{module_name}")
                 module.register(app)
             except Exception as e:
-                print(f"Error loading module {module_name}: {e}")
+                log.error(f"Error loading module {module_name}: {e}")
