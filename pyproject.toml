@@ -5,6 +5,7 @@ description = "A Telegram bot written in Python using Pyrogram to ease the workf
 authors = ["Pranaya Deomani <pranayadmn@proton.me>"]
 license = "MIT"
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.11"
