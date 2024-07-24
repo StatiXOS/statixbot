@@ -1,0 +1,8 @@
+# Environment
+.env
+
+# Pyrogram
+src/app.session
+
+# Python
+__pycache__/
