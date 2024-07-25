@@ -7,6 +7,7 @@
 from typing import Dict
 
 from pyrogram import Client, filters
+from pyrogram.types import Message
 
 # This dictionary will store commands and their descriptions
 cmds: Dict[str, str] = {}
@@ -15,7 +16,7 @@ cmds: Dict[str, str] = {}
 async def register(app: Client) -> None:
     # Register the /help command
     @app.on_message(filters.command("help"))
-    async def help_handler(client: Client, message) -> None:
+    async def help_handler(client: Client, message: Message) -> None:
         help_text: str = "Available commands:\n"
         for command, description in cmds.items():
             help_text += f"/{command}: {description}\n"
