@@ -7,16 +7,19 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
+from statixbot.Module import ModuleBase
+
 from .help import add_cmd
 
 
-async def register(app: Client) -> None:
-    # Register the /start command
-    @app.on_message(filters.command("start"))
-    async def start(client: Client, message: Message) -> None:
-        await message.reply_text(
-            "'Ssup! What would you like me to do?\nUse /help to get a list of all commands and their usage."
-        )
+class Module(ModuleBase):
+    async def register(self, app: Client) -> None:
+        """Register the /start command."""
 
-    # Register this command with the help module
-    add_cmd("start", "Starts the bot.")
+        @app.on_message(filters.command("start"))
+        async def start(client: Client, message: Message) -> None:
+            await message.reply_text(
+                "'Ssup! What would you like me to do?\nUse /help to get a list of all commands and their usage."
+            )
+
+        add_cmd("start", "Starts the bot.")
