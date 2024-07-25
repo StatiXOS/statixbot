@@ -51,15 +51,15 @@ class Module(ModuleBase):
         async def post_message(client: Client, message: Message) -> None:
             try:
                 args: str = message.text.split(maxsplit=2)
-                if len(args) != 3:
+                if len(args) < 2:
                     await message.reply_text(
-                        "Usage: /post <code>&lt;codename&gt;</code> <code>&lt;changelog&gt;</code>",
+                        "Usage: /post <code>&lt;codename&gt;</code> <code>[changelog]</code>",
                         parse_mode=ParseMode.HTML,
                     )
                     return
 
                 codename: str = args[1]
-                changelog: str = args[2]
+                changelog: str = args[2] if len(args) == 3 else ""
 
                 if codename not in JSON_DATA:
                     await message.reply_text(f"Codename `{codename}` not found in database.")
@@ -73,8 +73,11 @@ class Module(ModuleBase):
                     f"#{codename} #{release.get('branch', 'unknown')}\n"
                     f"New **StatiXOS {release.get('codename', 'UNKNOWN')}** build for **{device.get('manufacturer', 'Unknown')} {device.get('model', 'Unknown')} ({codename})**!\n\n"
                     f"**Maintainer:** {device.get('maintainer', 'Unknown')}\n"
-                    f"[Download](https://downloads.statixos.com/{release.get('version', '0')}-{release.get('codename', 'UNKNOWN')}/{codename}) | [Changelog]({changelog})"
+                    f"[Download](https://downloads.statixos.com/{release.get('version', '0')}-{release.get('codename', 'UNKNOWN')}/{codename})"
                 )
+
+                if changelog:
+                    message_text += f" | [Changelog]({changelog})"
 
                 await client.send_message(
                     chat_id="-1001238532711",
@@ -89,6 +92,6 @@ class Module(ModuleBase):
                 await message.reply_text("An error occurred while posting the message.")
 
         add_cmd(
-            "post <code>&lt;codename&gt;</code> <code>&lt;changelog&gt;</code>",
+            "post <code>&lt;codename&gt;</code> <code>[changelog]</code>",
             "Post a new build to @StatiXOSReleases.",
         )
