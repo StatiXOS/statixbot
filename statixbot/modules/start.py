@@ -22,4 +22,4 @@ class Module(ModuleBase):
                 "'Ssup! What would you like me to do?\nUse /help to get a list of all commands and their usage."
             )
 
-        add_cmd("start", "Starts the bot.")
+        add_cmd("start", "Starts me! You've probably already used this.")

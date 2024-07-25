@@ -7,11 +7,17 @@
 from typing import Dict
 
 from pyrogram import Client, filters
+from pyrogram.enums import ParseMode
 from pyrogram.types import Message
 
 from statixbot.Module import ModuleBase
 
 cmds: Dict[str, str] = {}
+
+
+def add_cmd(cmd: str, desc: str) -> None:
+    """Add command to the help module."""
+    cmds[cmd] = desc
 
 
 class Module(ModuleBase):
@@ -20,12 +26,9 @@ class Module(ModuleBase):
 
         @app.on_message(filters.command("help"))
         async def help_handler(client: Client, message: Message) -> None:
-            help_text: str = "Available commands:\n"
+            help_text: str = "<b>Available commands:</b>\n"
             for command, description in cmds.items():
-                help_text += f"/{command}: {description}\n"
-            await message.reply_text(help_text)
+                help_text += f"- /{command}: {description}\n"
+            await message.reply_text(help_text, parse_mode=ParseMode.HTML)
 
-
-def add_cmd(cmd: str, desc: str) -> None:
-    """Add command to the help module."""
-    cmds[cmd] = desc
+        add_cmd("help", "Sends this message.")

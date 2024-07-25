@@ -1,0 +1,12 @@
+{
+    "release": {
+        "version": 14,
+        "branch": "udc",
+        "codename": "UPSIDEDOWNCAKE"
+    },
+    "yunluo": {
+        "manufacturer": "Xiaomi",
+        "model": "Redmi Pad",
+        "maintainer": "Pranaya Deomani"
+    }
+}
