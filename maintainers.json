@@ -4,6 +4,18 @@
         "branch": "udc",
         "codename": "UPSIDEDOWNCAKE"
     },
+    "miatoll": {
+        "manufacturer": "Xiaomi",
+        "model": "SD720G devices",
+        "maintainer": "Leonardo Ledda",
+        "changelog": "4566933/post-88307301"
+    },
+    "venus": {
+        "manufacturer": "Xiaomi",
+        "model": "Mi 11",
+        "maintainer": "Ralph Chen",
+        "changelog": "4495073/post-87457361"
+    },
     "yunluo": {
         "manufacturer": "Xiaomi",
         "model": "Redmi Pad",
