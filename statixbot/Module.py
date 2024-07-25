@@ -21,7 +21,7 @@ async def load_modules(app: Client) -> None:
             module_name: str = filename[:-3]
             try:
                 log.info(f"Loading module: {module_name}")
-                module: Any = import_module(f"src.modules.{module_name}")
+                module: Any = import_module(f"statixbot.modules.{module_name}")
                 await module.register(app)
             except Exception as e:
                 log.error(f"Error loading module {module_name}: {e}")
@@ -29,7 +29,7 @@ async def load_modules(app: Client) -> None:
     # Load the help module after other modules
     try:
         log.info("Loading help module")
-        help_module: Any = import_module("src.modules.help")
+        help_module: Any = import_module("statixbot.modules.help")
         await help_module.register(app)
     except Exception as e:
         log.error(f"Error loading help module: {e}")

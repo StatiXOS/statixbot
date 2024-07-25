@@ -1,4 +1,4 @@
-# StatiXOSBot
+# statixbot
 ## Development
 For development / contributions to the project, please make sure you install
 our pre-commit hook, to make sure all Python files are formatted with `black`

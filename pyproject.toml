@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "statixosbot"
+name = "statixbot"
 version = "0.1.0"
 description = "A Telegram bot written in Python using Pyrogram to ease the workflows of the StatiX team!"
 authors = ["Pranaya Deomani <pranayadmn@proton.me>"]
 license = "MIT"
 readme = "README.md"
-package-mode = false
+repository = "https://github.com/StatiXOS/statixbot"
 
 [tool.poetry.dependencies]
 python = "^3.11"
