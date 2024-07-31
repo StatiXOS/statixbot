@@ -234,6 +234,17 @@ files = [
 cli = ["click (>=5.0)"]
 
 [[package]]
+name = "python-strtobool"
+version = "1.0.2"
+description = "str_to_bool function for Python"
+optional = false
+python-versions = "<4.0,>=3.9"
+files = [
+    {file = "python_strtobool-1.0.2-py3-none-any.whl", hash = "sha256:107d93760078a7b7eee91b455077fd6123fd94e6474815dfe306854cdfa47d70"},
+    {file = "python_strtobool-1.0.2.tar.gz", hash = "sha256:0c72ed5391e2aeef11bcbe754b96ed8770066000ea7ef0c2d33555c4538c6139"},
+]
+
+[[package]]
 name = "tgcrypto"
 version = "1.2.5"
 description = "Fast and Portable Cryptography Extension Library for Pyrogram"
@@ -301,4 +312,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "df9cc592ad1b815bff26eaa5f22f09b30c1a6c5d38cc296d959037143012456f"
+content-hash = "507032be4124c3f578bb6d389f77b903bf85054d0b31b53676dc7ef0402a33a1"

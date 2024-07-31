@@ -12,6 +12,7 @@ from typing import Dict
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
 from pyrogram.types import Message
+from str_to_bool import str_to_bool
 
 from statixbot.Auth import authorized
 from statixbot.Module import ModuleBase
@@ -53,13 +54,13 @@ class Module(ModuleBase):
                 args: str = message.text.split(maxsplit=2)
                 if len(args) < 2:
                     await message.reply_text(
-                        "Usage: /post <code>&lt;codename&gt;</code> <code>[changelog]</code>",
+                        "Usage: /post <code>&lt;codename&gt;</code> <code>[changelog (bool)]</code>",
                         parse_mode=ParseMode.HTML,
                     )
                     return
 
                 codename: str = args[1]
-                changelog: str = args[2] if len(args) == 3 else ""
+                postcl: bool = str_to_bool(args[2]) if len(args) == 3 else True
 
                 if codename not in JSON_DATA:
                     await message.reply_text(f"Codename `{codename}` not found in database.")
@@ -68,16 +69,23 @@ class Module(ModuleBase):
                 data: Dict = JSON_DATA
                 release: Dict = data.get("release", {})
                 device: Dict = data.get(codename, {})
+                changelog: str = device.get("changelog", "")
+                download: str = (
+                    f"https://downloads.statixos.com/{release.get('version', '0')}-{release.get('codename', 'UNKNOWN')}/{codename}"
+                )
 
                 message_text: str = (
                     f"#{codename} #{release.get('branch', 'unknown')}\n"
                     f"New **StatiXOS {release.get('codename', 'UNKNOWN')}** build for **{device.get('manufacturer', 'Unknown')} {device.get('model', 'Unknown')} ({codename})**!\n\n"
                     f"**Maintainer:** {device.get('maintainer', 'Unknown')}\n"
-                    f"[Download](https://downloads.statixos.com/{release.get('version', '0')}-{release.get('codename', 'UNKNOWN')}/{codename})"
+                    f"[Download]({download})"
                 )
 
-                if changelog:
-                    message_text += f" | [Changelog]({changelog})"
+                if postcl:
+                    if changelog:
+                        message_text += f" | [Changelog](https://xdaforums.com/t/{changelog})"
+                    else:
+                        message_text += f" | [Changelog]({download}/changelog.txt)"
 
                 await client.send_message(
                     chat_id="-1001238532711",
@@ -92,6 +100,6 @@ class Module(ModuleBase):
                 await message.reply_text("An error occurred while posting the message.")
 
         add_cmd(
-            "post <code>&lt;codename&gt;</code> <code>[changelog]</code>",
+            "post <code>&lt;codename&gt;</code> <code>[changelog (bool)]</code>",
             "Post a new build to @StatiXOSReleases.",
         )
