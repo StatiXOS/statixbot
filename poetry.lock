@@ -170,7 +170,7 @@ files = [
 
 [[package]]
 name = "Pyrogram"
-version = "2.1.22"
+version = "2.1.23"
 description = "Elegant, modern and asynchronous Telegram MTProto API framework in Python for users and bots"
 optional = false
 python-versions = "~=3.8"
@@ -184,8 +184,8 @@ pysocks = "1.7.1"
 [package.source]
 type = "git"
 url = "https://github.com/KurimuzonAkuma/pyrogram.git"
-reference = "v2.1.22"
-resolved_reference = "6a481c45886d36d0ecc753379b5830c3b26d20fa"
+reference = "v2.1.23"
+resolved_reference = "46ed4f08d7cda2752e878daa3dd4bee20122d648"
 
 [[package]]
 name = "pysocks"
@@ -201,13 +201,13 @@ files = [
 
 [[package]]
 name = "pytest"
-version = "8.3.1"
+version = "8.3.2"
 description = "pytest: simple powerful testing with Python"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "pytest-8.3.1-py3-none-any.whl", hash = "sha256:e9600ccf4f563976e2c99fa02c7624ab938296551f280835ee6516df8bc4ae8c"},
-    {file = "pytest-8.3.1.tar.gz", hash = "sha256:7e8e5c5abd6e93cb1cc151f23e57adc31fcf8cfd2a3ff2da63e23f732de35db6"},
+    {file = "pytest-8.3.2-py3-none-any.whl", hash = "sha256:4ba08f9ae7dcf84ded419494d229b48d0903ea6407b030eaec46df5e6a73bba5"},
+    {file = "pytest-8.3.2.tar.gz", hash = "sha256:c132345d12ce551242c87269de812483f5bcc87cdbb4722e48487ba194f9fdce"},
 ]
 
 [package.dependencies]
@@ -312,4 +312,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "507032be4124c3f578bb6d389f77b903bf85054d0b31b53676dc7ef0402a33a1"
+content-hash = "472d177266051cf95631be8e73b3b7db130c23637e022d6ebbedfb2967612918"
