@@ -4,11 +4,31 @@
         "branch": "udc",
         "codename": "UPSIDEDOWNCAKE"
     },
+    "alioth": {
+        "manufacturer": "Xiaomi",
+        "model": "POCO F3 / Redmi K40 / Mi 11X",
+        "maintainer": "Yoriscape"
+    },
     "miatoll": {
         "manufacturer": "Xiaomi",
         "model": "SD720G devices",
         "maintainer": "Leonardo Ledda",
         "changelog": "4566933/post-88307301"
+    },
+    "munch": {
+        "manufacturer": "Xiaomi",
+        "model": "POCO F4 / Redmi K40S",
+        "maintainer": "Yoriscape"
+    },
+    "nabu": {
+        "manufacturer": "Xiaomi",
+        "model": "Pad 5",
+        "maintainer": "Vaisakh Murali"
+    },
+    "sky": {
+        "manufacturer": "Xiaomi",
+        "model": "Redmi 12 5G / POCO M6 Pro 5G / Redmi Note 12R",
+        "maintainer": "Sourajit Karmakar"
     },
     "venus": {
         "manufacturer": "Xiaomi",
