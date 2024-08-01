@@ -4,9 +4,7 @@
 # license that can be found in the LICENSE file or at
 # https://opensource.org/licenses/MIT.
 
-import json
 import logging
-from pathlib import Path
 from typing import Dict
 
 from pyrogram import Client, filters
@@ -15,32 +13,12 @@ from pyrogram.types import Message
 from str_to_bool import str_to_bool
 
 from statixbot.Auth import authorized
+from statixbot.Database import data, release
 from statixbot.Module import ModuleBase
 
 from .help import add_cmd
 
 log: logging.Logger = logging.getLogger(__name__)
-
-JSON_FILE_PATH: Path = Path(__file__).parent.parent.parent / "maintainers.json"
-
-
-def load_json_data(file_path: Path) -> Dict:
-    """Load JSON data from a file."""
-    try:
-        with open(file_path, "r") as file:
-            return json.load(file)
-    except FileNotFoundError:
-        log.error(f"File not found: {file_path}")
-        return {}
-    except json.JSONDecodeError as e:
-        log.error(f"Error decoding JSON file {file_path}: {e}")
-        return {}
-    except Exception as e:
-        log.error(f"Unexpected error while loading JSON file {file_path}: {e}")
-        return {}
-
-
-JSON_DATA: Dict = load_json_data(JSON_FILE_PATH)
 
 
 class Module(ModuleBase):
@@ -62,12 +40,10 @@ class Module(ModuleBase):
                 codename: str = args[1]
                 postcl: bool = str_to_bool(args[2]) if len(args) == 3 else True
 
-                if codename not in JSON_DATA:
+                if codename not in data:
                     await message.reply_text(f"Codename `{codename}` not found in database.")
                     return
 
-                data: Dict = JSON_DATA
-                release: Dict = data.get("release", {})
                 device: Dict = data.get(codename, {})
                 changelog: str = device.get("changelog", "")
                 download: str = (
