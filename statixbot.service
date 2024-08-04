@@ -1,0 +1,19 @@
+[Unit]
+Description=statixbot service
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+# Change WorkingDirectory with the directory where you have statixbot configs
+WorkingDirectory=/home/statix/statixbot
+ExecStart=/home/statix/.local/bin/poetry run python -m statixbot
+Type=simple
+Restart=always
+RestartSec=5
+# Don't die if OOM killer kills a subprocess
+OOMPolicy=continue
+# If you want to execute it as non-root (recommended)
+User=statix
+
+[Install]
+WantedBy=multi-user.target
