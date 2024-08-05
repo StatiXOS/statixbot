@@ -13,6 +13,7 @@ from pyrogram.types import Message
 AUTHORIZED_USERS: set[int] = {
     271913103,  # Anay
     382989527,  # Andrew
+    372450085,  # Ledda
     6920687756,  # Pranaya
     415397712,  # Sourajit
     327722191,  # Vaisakh
