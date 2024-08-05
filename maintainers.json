@@ -6,12 +6,12 @@
     },
     "alioth": {
         "manufacturer": "Xiaomi",
-        "model": "POCO F3 / Redmi K40 / Mi 11X",
+        "model": "Mi 11X / POCO F3 / Redmi K40",
         "maintainer": "Yoriscape"
     },
     "miatoll": {
         "manufacturer": "Xiaomi",
-        "model": "SD720G devices",
+        "model": "POCO M2 Pro / Redmi Note 9S/Note 9 Pro/Note 9 Pro Max/Note 10 Lite",
         "maintainer": "Leonardo Ledda",
         "changelog": "4566933/post-88307301"
     },
@@ -27,7 +27,7 @@
     },
     "sky": {
         "manufacturer": "Xiaomi",
-        "model": "Redmi 12 5G / POCO M6 Pro 5G / Redmi Note 12R",
+        "model": "POCO M6 Pro 5G / Redmi 12 5G / Redmi Note 12R",
         "maintainer": "Sourajit Karmakar"
     },
     "venus": {
