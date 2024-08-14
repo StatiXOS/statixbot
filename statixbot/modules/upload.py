@@ -102,7 +102,7 @@ async def upload_file(client: Client, message: Message, subdir: str, url: str, c
             log.info(f"Deleting downloaded file: {file.name}")
             os.remove(file)
 
-        await progress_msg.edit_text(f"Successfully uploaded the file to `{subdir}`!")
+        await progress_msg.edit_text(f"Successfully uploaded the file to [{subdir}](https://downloads.statixos.com/{release.get('version')}-{release.get('codename')}/{subdir})!")
     except Exception as e:
         log.error(f"Error uploading file: {e}")
         await progress_msg.edit_text(f"An error occurred while uploading the file: {e}")
