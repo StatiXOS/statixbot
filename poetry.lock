@@ -170,7 +170,7 @@ files = [
 
 [[package]]
 name = "Pyrogram"
-version = "2.1.23"
+version = "2.1.24"
 description = "Elegant, modern and asynchronous Telegram MTProto API framework in Python for users and bots"
 optional = false
 python-versions = "~=3.8"
@@ -184,8 +184,8 @@ pysocks = "1.7.1"
 [package.source]
 type = "git"
 url = "https://github.com/KurimuzonAkuma/pyrogram.git"
-reference = "v2.1.23"
-resolved_reference = "46ed4f08d7cda2752e878daa3dd4bee20122d648"
+reference = "v2.1.24"
+resolved_reference = "e2f7547e760ed1cda70fe54779c2a2d6ef39853f"
 
 [[package]]
 name = "pysocks"
@@ -312,4 +312,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "e9f6747b493171e0cec70244df3fff1df5d3b29c6789fecff0e63fdaf237f057"
+content-hash = "624c4a8e75a7cf34115a7e0cc195fdba1fd1bb8246b35af3fb70cfb5c5d2eda3"

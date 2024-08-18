@@ -9,7 +9,7 @@ repository = "https://github.com/StatiXOS/statixbot"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-pyrogram = {git = "https://github.com/KurimuzonAkuma/pyrogram.git", rev = "v2.1.23"}
+pyrogram = {git = "https://github.com/KurimuzonAkuma/pyrogram.git", rev = "v2.1.24"}
 python-dotenv = "^1.0.1"
 python-strtobool = "^1.0.2"
 TgCrypto = "^1.2.5"
