@@ -1,8 +1,8 @@
 {
     "release": {
-        "version": 14,
-        "branch": "udc",
-        "codename": "UPSIDEDOWNCAKE"
+        "version": 15,
+        "branch": "vic",
+        "codename": "VanillaIceCream"
     },
     "alioth": {
         "manufacturer": "Xiaomi",

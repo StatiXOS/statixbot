@@ -63,9 +63,9 @@ async def upload_file(client: Client, message: Message, subdir: str, url: str, c
         elif type == "changelog.txt" and not changelog_url:
             filename: str = "changelog*.txt"
         elif type == "fastbootimages":
-            filename: str = f"statix_{codename}*-????????-??-v?.*-*-img.zip"
+            filename: str = f"statix_{codename}*-????????-{release.get('version')}-v?.*-{release.get('codename')}-img.zip"
         else:
-            filename: str = f"statix_{codename}*-????????-??-v?.*-*.zip"
+            filename: str = f"statix_{codename}*-????????-{release.get('version')}-v?.*-{release.get('codename')}.zip"
 
         if not any(download_dir.glob(filename)):
             log.error("No file with matching name(s) found!")
