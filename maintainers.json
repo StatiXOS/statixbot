@@ -25,6 +25,11 @@
         "model": "Pad 5",
         "maintainer": "Vaisakh Murali"
     },
+    "peridot": {
+        "manufacturer": "Xiaomi",
+        "model": "POCO F6 / Redmi Turbo 3",
+        "maintainer": "Yoriscape"
+    },
     "sky": {
         "manufacturer": "Xiaomi",
         "model": "POCO M6 Pro 5G / Redmi 12 5G / Redmi Note 12R",
