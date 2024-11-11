@@ -25,10 +25,20 @@
         "model": "Pad 5",
         "maintainer": "Vaisakh Murali"
     },
+    "oriole": {
+        "manufacturer": "Google",
+        "model": "Pixel 6",
+        "maintainer": "Anay Wadhera"
+    },
     "peridot": {
         "manufacturer": "Xiaomi",
         "model": "POCO F6 / Redmi Turbo 3",
         "maintainer": "Yoriscape"
+    },
+    "raven": {
+        "manufacturer": "Google",
+        "model": "Pixel 6 Pro",
+        "maintainer": "Anay Wadhera"
     },
     "sky": {
         "manufacturer": "Xiaomi",
