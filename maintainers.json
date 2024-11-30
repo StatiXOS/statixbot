@@ -9,6 +9,11 @@
         "model": "Mi 11X / POCO F3 / Redmi K40",
         "maintainer": "Yoriscape"
     },
+    "husky": {
+        "manufacturer": "Google",
+        "model": "Pixel 8 Pro",
+        "maintainer": "Anay Wadhera"
+    },
     "miatoll": {
         "manufacturer": "Xiaomi",
         "model": "POCO M2 Pro / Redmi Note 9S/Note 9 Pro/Note 9 Pro Max/Note 10 Lite",
@@ -38,6 +43,11 @@
     "raven": {
         "manufacturer": "Google",
         "model": "Pixel 6 Pro",
+        "maintainer": "Anay Wadhera"
+    },
+    "shiba": {
+        "manufacturer": "Google",
+        "model": "Pixel 8",
         "maintainer": "Anay Wadhera"
     },
     "sky": {
