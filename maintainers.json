@@ -1,8 +1,8 @@
 {
     "release": {
-        "version": 15,
-        "branch": "vic",
-        "codename": "VanillaIceCream"
+        "version": 16,
+        "branch": "baklava",
+        "codename": "Baklava"
     },
     "alioth": {
         "manufacturer": "Xiaomi",
