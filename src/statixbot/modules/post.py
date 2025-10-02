@@ -41,14 +41,14 @@ class Module(ModuleBase):
                 postcl: bool = str_to_bool(args[2]) if len(args) == 3 else True
 
                 if codename not in data:
-                    await message.reply_text(f"Codename `{codename}` not found in database.")
+                    await message.reply_text(
+                        f"Codename `{codename}` not found in database."
+                    )
                     return
 
                 device: Dict = data.get(codename, {})
                 changelog: str = device.get("changelog", "")
-                download: str = (
-                    f"https://downloads.statixos.com/{release.get('version', '0')}-{release.get('codename', 'UNKNOWN')}/{codename}"
-                )
+                download: str = f"https://downloads.statixos.com/{release.get('version', '0')}-{release.get('codename', 'UNKNOWN')}/{codename}"
 
                 message_text: str = (
                     f"#{codename} #{release.get('branch', 'unknown')}\n"
@@ -59,7 +59,9 @@ class Module(ModuleBase):
 
                 if postcl:
                     if changelog:
-                        message_text += f" | [Changelog](https://xdaforums.com/t/{changelog})"
+                        message_text += (
+                            f" | [Changelog](https://xdaforums.com/t/{changelog})"
+                        )
                     else:
                         message_text += f" | [Changelog]({download}/changelog.txt)"
 
@@ -69,7 +71,9 @@ class Module(ModuleBase):
                     parse_mode=ParseMode.MARKDOWN,
                     disable_web_page_preview=True,
                 )
-                await message.reply_text("Successfully posted the build to @StatiXOSReleases!")
+                await message.reply_text(
+                    "Successfully posted the build to @StatiXOSReleases!"
+                )
 
             except Exception as e:
                 log.error(f"Error posting message: {e}")
