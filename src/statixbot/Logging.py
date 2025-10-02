@@ -21,7 +21,6 @@ if GLOBAL_DEBUG:
 # Adapted from https://stackoverflow.com/a/56944256
 #
 class ColouredFormatter(logging.Formatter):
-
     grey = "\x1b[38;20m"
     yellow = "\x1b[33;20m"
     red = "\x1b[31;20m"
@@ -45,7 +44,9 @@ class ColouredFormatter(logging.Formatter):
         return formatter.format(record)
 
 
-logging.basicConfig(format="%(asctime)s [%(levelname)s] %(name)s: %(message)s", **log_additional_args)
+logging.basicConfig(
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s", **log_additional_args
+)
 
 
 for handler in logging.root.handlers:

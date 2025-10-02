@@ -6,7 +6,7 @@ After=network-online.target
 [Service]
 # Change WorkingDirectory with the directory where you have statixbot configs
 WorkingDirectory=/home/statix/statixbot
-ExecStart=/home/statix/.local/bin/poetry run python -m statixbot
+ExecStart=/home/statix/.local/bin/uv run statixbot
 Type=simple
 Restart=always
 RestartSec=5

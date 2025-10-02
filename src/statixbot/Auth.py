@@ -25,7 +25,9 @@ def authorized(func):
     """Decorator to restrict access to authorized users only."""
 
     @wraps(func)
-    async def wrapper(client: Client, message: Message, *args: Any, **kwargs: Any) -> None:
+    async def wrapper(
+        client: Client, message: Message, *args: Any, **kwargs: Any
+    ) -> None:
         if message.from_user.id in AUTHORIZED_USERS:
             return await func(client, message, *args, **kwargs)
 

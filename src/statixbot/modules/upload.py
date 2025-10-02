@@ -24,9 +24,11 @@ log: logging.Logger = logging.getLogger(__name__)
 HOST: str = "karmakar@65.109.66.101"
 
 
-async def upload_file(client: Client, message: Message, subdir: str, url: str, codename: str) -> None:
+async def upload_file(
+    client: Client, message: Message, subdir: str, url: str, codename: str
+) -> None:
     """Download the given file locally using aria2 and upload it using rsync."""
-    download_dir: Path = Path(__file__).parent.parent.parent / "tmp"
+    download_dir: Path = Path(__file__).parent.parent.parent.parent / "tmp"
     upload_dir: Path = Path(
         f"/home/karmakar/dockerhome/h5ai/{release.get('version')}-{release.get('codename')}/{subdir}"
     )
@@ -34,7 +36,7 @@ async def upload_file(client: Client, message: Message, subdir: str, url: str, c
     progress_msg = await message.reply_text("Downloading file...")
     try:
         aria2c: str = f"aria2c -x 16 -s 16 -d {download_dir} --download-result=hide --summary-interval=0"
-        device: Dict = data.get(codename, {})
+        device: dict[str, str] = data.get(codename, {})
         changelog_url: str = device.get("changelog", "")
         type: str = subdir.split("/")[1] if len(subdir.split("/")) == 2 else ""
 
@@ -70,7 +72,7 @@ async def upload_file(client: Client, message: Message, subdir: str, url: str, c
         if not any(download_dir.glob(filename)):
             log.error("No file with matching name(s) found!")
             await progress_msg.edit_text(
-                f"An error occurred while downloading the file: No file with matching name(s) found!"
+                "An error occurred while downloading the file: No file with matching name(s) found!"
             )
             for file in download_dir.glob("[!.]*"):
                 log.info(f"Deleting downloaded file: {file.name}")
@@ -102,7 +104,9 @@ async def upload_file(client: Client, message: Message, subdir: str, url: str, c
             log.info(f"Deleting downloaded file: {file.name}")
             os.remove(file)
 
-        await progress_msg.edit_text(f"Successfully uploaded the file to [{subdir}](https://downloads.statixos.com/{release.get('version')}-{release.get('codename')}/{subdir})!")
+        await progress_msg.edit_text(
+            f"Successfully uploaded the file to [{subdir}](https://downloads.statixos.com/{release.get('version')}-{release.get('codename')}/{subdir})!"
+        )
     except Exception as e:
         log.error(f"Error uploading file: {e}")
         await progress_msg.edit_text(f"An error occurred while uploading the file: {e}")
@@ -118,14 +122,17 @@ class Module(ModuleBase):
             args = message.text.split(maxsplit=2)
             if len(args) != 3:
                 await message.reply_text(
-                    "Usage: /upload <code>&lt;subdir&gt;</code> <code>&lt;url&gt;</code>", parse_mode=ParseMode.HTML
+                    "Usage: /upload <code>&lt;subdir&gt;</code> <code>&lt;url&gt;</code>",
+                    parse_mode=ParseMode.HTML,
                 )
                 return
 
             subdir, url = args[1], args[2]
             codename = subdir.split("/")[0]
             if codename not in data:
-                await message.reply_text(f"Codename `{codename}` not found in database.")
+                await message.reply_text(
+                    f"Codename `{codename}` not found in database."
+                )
                 return
 
             await upload_file(client, message, subdir, url, codename)
