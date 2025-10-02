@@ -19,7 +19,9 @@ def load_config() -> tuple[int, str, str]:
     bot_token: str = os.getenv("BOT_TOKEN", "")
 
     if not all([api_id, api_hash, bot_token]):
-        raise ValueError("API_ID, API_HASH, and BOT_TOKEN must be set in the .env file.")
+        raise ValueError(
+            "API_ID, API_HASH, and BOT_TOKEN must be set in the .env file."
+        )
 
     return api_id, api_hash, bot_token
 

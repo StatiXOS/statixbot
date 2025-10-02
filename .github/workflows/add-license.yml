@@ -10,15 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
           fetch-depth: 0 # Required to retrieve full commit history
           persist-credentials: false # Required to allow the use of the token to push back to the repository
 
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
-          python-version: "3.11"
+          python-version: "3.14"
+          allow-prereleases: true
 
     - name: Add License
       run: |

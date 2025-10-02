@@ -11,7 +11,7 @@ from typing import Dict
 
 log: logging.Logger = logging.getLogger(__name__)
 
-JSON_FILE_PATH: Path = Path(__file__).parent.parent / "maintainers.json"
+JSON_FILE_PATH: Path = Path(__file__).parent.parent.parent / "maintainers.json"
 
 
 def load_json_data(file_path: Path) -> Dict:

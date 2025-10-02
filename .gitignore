@@ -5,7 +5,15 @@
 app.log
 
 # Pyrogram
-statixbot/app.session*
+src/statixbot/app.session*
 
-# Python
+# Python-generated files
 __pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
