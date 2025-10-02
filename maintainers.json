@@ -9,6 +9,11 @@
         "model": "Mi 11X / POCO F3 / Redmi K40",
         "maintainer": "Yoriscape"
     },
+    "benz": {
+        "manufacturer": "OnePlus",
+        "model": "Nord CE4",
+        "maintainer": "Vaisakh Murali"
+    },
     "husky": {
         "manufacturer": "Google",
         "model": "Pixel 8 Pro",
@@ -50,20 +55,15 @@
         "model": "Pixel 8",
         "maintainer": "Anay Wadhera"
     },
-    "sky": {
-        "manufacturer": "Xiaomi",
-        "model": "POCO M6 Pro 5G / Redmi 12 5G / Redmi Note 12R",
-        "maintainer": "Sourajit Karmakar"
+    "sunfish": {
+        "manufacturer": "Google",
+        "model": "Pixel 4a",
+        "maintainer": "Vaisakh Murali"
     },
     "venus": {
         "manufacturer": "Xiaomi",
         "model": "Mi 11",
         "maintainer": "Ralph Chen",
         "changelog": "4495073/post-87457361"
-    },
-    "yunluo": {
-        "manufacturer": "Xiaomi",
-        "model": "Redmi Pad",
-        "maintainer": "Pranaya Deomani"
     }
 }
